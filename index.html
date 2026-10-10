@@ -19,12 +19,16 @@
              letter-spacing: .06em; margin: 28px 0 12px; }
   .card { background: #162032; border-radius: 12px;
            padding: 14px; margin-bottom: 14px; }
-  .card-top { display: flex; align-items: center; gap: 12px; cursor: pointer; }
-  .ticker { font-weight: 800; font-size: 17px; min-width: 52px; }
-  .spark { flex: 0 0 auto; }
-  .price { margin-left: auto; font-size: 16px; font-variant-numeric: tabular-nums; }
-  .chg { font-size: 15px; font-weight: 700; min-width: 70px; text-align: right;
-          font-variant-numeric: tabular-nums; }
+  .card-top { display: flex; align-items: center; gap: 10px; cursor: pointer;
+              min-width: 0; }
+  .ticker { font-weight: 800; font-size: 17px; flex: 0 0 auto; }
+  .spark { flex: 1 1 auto; min-width: 60px; max-width: 140px; height: 36px;
+            width: 100%; }
+  .price { margin-left: auto; font-size: 16px; font-variant-numeric: tabular-nums;
+            flex: 0 0 auto; white-space: nowrap; }
+  .chg { font-size: 15px; font-weight: 700; text-align: right;
+          font-variant-numeric: tabular-nums; flex: 0 0 auto;
+          white-space: nowrap; }
   .news { font-size: 17px; line-height: 1.5; margin: 10px 0 4px; }
   .src { font-size: 13px; color: #8b95ad; }
   .src a { color: #7fb3ff; }
