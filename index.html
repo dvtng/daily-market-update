@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Market Update — Saturday, October 10, 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+         margin: 0; background: #0f1420; color: #e8ecf3; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
+  h1 { font-size: 26px; margin: 6px 0 2px; }
+  .edition { color: #9aa4b8; font-size: 14px; margin-bottom: 18px; }
+  .idx-row { display: flex; justify-content: space-between; padding: 10px 4px;
+              border-bottom: 1px solid #232c42; font-size: 16px; }
+  .idx-name { font-weight: 600; }
+  .up { color: #4ade80; } .down { color: #f87171; }
+  .day h2 { font-size: 15px; color: #9aa4b8; text-transform: uppercase;
+             letter-spacing: .06em; margin: 28px 0 12px; }
+  .card { background: #162032; border-radius: 12px;
+           padding: 14px; margin-bottom: 14px; }
+  .card-top { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+  .ticker { font-weight: 800; font-size: 17px; min-width: 52px; }
+  .spark { flex: 0 0 auto; }
+  .price { margin-left: auto; font-size: 16px; font-variant-numeric: tabular-nums; }
+  .chg { font-size: 15px; font-weight: 700; min-width: 70px; text-align: right;
+          font-variant-numeric: tabular-nums; }
+  .news { font-size: 17px; line-height: 1.5; margin: 10px 0 4px; }
+  .src { font-size: 13px; color: #8b95ad; }
+  .src a { color: #7fb3ff; }
+  #overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.72);
+              z-index: 50; align-items: center; justify-content: center; }
+  #modal { background: #162032; border-radius: 14px; padding: 20px; width: 92%;
+            max-width: 560px; }
+  #modal h3 { margin: 0 0 4px; font-size: 20px; }
+  #modal .sub { color: #9aa4b8; font-size: 13px; margin-bottom: 10px; }
+  .ranges { display: flex; gap: 8px; margin-bottom: 10px; }
+  .ranges button { background: #232c42; color: #e8ecf3; border: 0; border-radius: 8px;
+                    padding: 8px 14px; font-size: 14px; cursor: pointer; }
+  .ranges button.active { background: #3b82f6; }
+  #chart { width: 100%; height: 220px; }
+  #close { margin-top: 12px; width: 100%; }
+  .note { color: #9aa4b8; font-size: 14px; }
+  footer { color: #5b6579; font-size: 12px; margin-top: 30px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Daily Market Update</h1>
+  <div class="edition">Saturday, October 10, 2026 · actual developments only, no analyst targets</div>
+  <div class="idx-row"><span class="idx-name">Dow Jones</span><span class="idx-val">51,654.95 <span class="up">+0.83%</span></span></div><div class="idx-row"><span class="idx-name">S&amp;P 500</span><span class="idx-val">7,811.54 <span class="up">+0.59%</span></span></div><div class="idx-row"><span class="idx-name">Nasdaq</span><span class="idx-val">27,366.17 <span class="up">+0.64%</span></span></div>
+  
+    <section class="day">
+      <h2>Today · Saturday, Oct 10</h2>
+      
+      <article class="card" data-ticker="BTC">
+        <div class="card-top" onclick="openChart('BTC')">
+          <span class="ticker">BTC</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,29.5 4.1,27.9 8.3,27.7 12.4,28.9 16.6,25.4 20.7,32.0 24.8,30.6 29.0,30.0 33.1,18.6 37.2,17.6 41.4,17.8 45.5,4.0 49.7,5.1 53.8,9.6 57.9,9.6 62.1,10.4 66.2,9.5 70.3,9.5 74.5,11.9 78.6,11.5 82.8,11.7 86.9,8.5 91.0,9.3 95.2,8.7 99.3,4.3 103.4,6.1 107.6,6.7 111.7,12.4 115.9,16.5 120.0,13.2" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">82,968.42</span>
+          <span class="chg up">+1.57%</span>
+        </div>
+        <p class="news">The US Treasury&#x27;s FinCEN withdrew two proposed crypto reporting regulations concerning self-custody wallets and foreign cryptocurrency mixing; separately, OKX brought on institutional investors including Circle, Ripple, QRT and SC Ventures at a $25B pre-money valuation.</p>
+        <div class="src">Source: Stocks24, Daily Mirror</div>
+      </article>
+      <article class="card" data-ticker="ETH">
+        <div class="card-top" onclick="openChart('ETH')">
+          <span class="ticker">ETH</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,29.0 4.1,23.3 8.3,22.5 12.4,26.1 16.6,23.3 20.7,32.0 24.8,30.6 29.0,28.4 33.1,16.1 37.2,14.6 41.4,13.7 45.5,4.0 49.7,5.7 53.8,10.7 57.9,10.5 62.1,10.2 66.2,9.9 70.3,10.5 74.5,10.5 78.6,11.3 82.8,10.7 86.9,9.2 91.0,11.9 95.2,10.5 99.3,7.7 103.4,8.8 107.6,9.8 111.7,19.0 115.9,26.4 120.0,24.2" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">2,503.35</span>
+          <span class="chg up">+1.24%</span>
+        </div>
+        <p class="news">Bitmine purchased another 15,112 ETH, boosting its Ethereum treasury above 6 million tokens, as corporate ETH treasuries keep accumulating.</p>
+        <div class="src">Source: Stocks24</div>
+      </article>
+    </section>
+    <section class="day">
+      <h2>Yesterday · Friday, Oct 9</h2>
+      
+      <article class="card" data-ticker="HOOD">
+        <div class="card-top" onclick="openChart('HOOD')">
+          <span class="ticker">HOOD</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,19.4 5.7,20.5 11.4,18.0 17.1,23.5 22.9,32.0 28.6,24.4 34.3,10.3 40.0,5.3 45.7,4.0 51.4,6.2 57.1,8.8 62.9,10.8 68.6,15.0 74.3,15.3 80.0,20.6 85.7,22.5 91.4,20.3 97.1,18.3 102.9,21.3 108.6,24.8 114.3,28.3 120.0,25.5" fill="none" stroke="#dc2626" stroke-width="2"/></svg>
+          <span class="price">109.02</span>
+          <span class="chg up">+1.88%</span>
+        </div>
+        <p class="news">State regulators are scrutinizing Robinhood&#x27;s prediction-market business; concern is that restrictions could limit sports-contract volumes and future monetization.</p>
+        <div class="src">Source: American Banking News</div>
+      </article>
+      <article class="card" data-ticker="HOOD">
+        <div class="card-top" onclick="openChart('HOOD')">
+          <span class="ticker">HOOD</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,19.4 5.7,20.5 11.4,18.0 17.1,23.5 22.9,32.0 28.6,24.4 34.3,10.3 40.0,5.3 45.7,4.0 51.4,6.2 57.1,8.8 62.9,10.8 68.6,15.0 74.3,15.3 80.0,20.6 85.7,22.5 91.4,20.3 97.1,18.3 102.9,21.3 108.6,24.8 114.3,28.3 120.0,25.5" fill="none" stroke="#dc2626" stroke-width="2"/></svg>
+          <span class="price">109.02</span>
+          <span class="chg up">+1.88%</span>
+        </div>
+        <p class="news">CEO Vladimir Tenev sold 375,000 HOOD shares (~$42.6M); insider Daniel Gallagher sold 10,000 shares (~$1.1M); both trades under pre-arranged Rule 10b5-1 plans.</p>
+        <div class="src">Source: MarketBeat, American Banking News</div>
+      </article>
+      <article class="card" data-ticker="META">
+        <div class="card-top" onclick="openChart('META')">
+          <span class="ticker">META</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,32.0 5.7,31.2 11.4,27.5 17.1,26.6 22.9,25.9 28.6,24.0 34.3,27.5 40.0,11.6 45.7,12.6 51.4,11.0 57.1,4.0 62.9,9.5 68.6,17.0 74.3,12.2 80.0,15.0 85.7,14.9 91.4,14.4 97.1,11.5 102.9,12.1 108.6,15.8 114.3,15.9 120.0,16.4" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">718.67</span>
+          <span class="chg down">-0.31%</span>
+        </div>
+        <p class="news">Jefferies testing found roughly one-third of websites block Meta&#x27;s Muse AI agent, and Amazon reportedly blocked it; could delay Meta&#x27;s plans to earn transaction fees from AI-powered commerce.</p>
+        <div class="src">Source: MarketBeat</div>
+      </article>
+      <article class="card" data-ticker="TSLA">
+        <div class="card-top" onclick="openChart('TSLA')">
+          <span class="ticker">TSLA</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,21.9 5.7,20.2 11.4,26.3 17.1,28.5 22.9,27.1 28.6,19.5 34.3,21.3 40.0,10.9 45.7,7.6 51.4,6.4 57.1,8.5 62.9,13.9 68.6,27.7 74.3,32.0 80.0,30.2 85.7,30.8 91.4,15.4 97.1,7.7 102.9,5.9 108.6,8.6 114.3,11.2 120.0,4.0" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">382.70</span>
+          <span class="chg up">+2.05%</span>
+        </div>
+        <p class="news">Lemonade expanded insurance support to HW3 Teslas running FSD Supervised v14 Lite, offering 30% savings on eligible FSD miles in three states.</p>
+        <div class="src">Source: StockTwits</div>
+      </article>
+      <article class="card" data-ticker="AAOI">
+        <div class="card-top" onclick="openChart('AAOI')">
+          <span class="ticker">AAOI</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,25.6 5.7,23.9 11.4,31.6 17.1,32.0 22.9,30.8 28.6,29.8 34.3,24.1 40.0,21.3 45.7,22.6 51.4,27.4 57.1,27.4 62.9,27.1 68.6,30.8 74.3,27.7 80.0,28.8 85.7,22.3 91.4,15.7 97.1,10.9 102.9,4.0 108.6,10.1 114.3,23.5 120.0,20.5" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">109.64</span>
+          <span class="chg up">+3.53%</span>
+        </div>
+        <p class="news">Insider Shu-Hua Yeh sold 6,000 AAOI shares at $120.03 avg (~$720K), dated Oct 5, under a pre-arranged Rule 10b5-1 plan; position trimmed 1.59% to 371,498 shares.</p>
+        <div class="src">Source: Daily Political, Watchlist News</div>
+      </article>
+      <article class="card" data-ticker="AMZN">
+        <div class="card-top" onclick="openChart('AMZN')">
+          <span class="ticker">AMZN</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,21.9 5.7,13.6 11.4,19.1 17.1,27.8 22.9,32.0 28.6,23.1 34.3,18.8 40.0,10.8 45.7,16.7 51.4,26.4 57.1,26.2 62.9,25.7 68.6,31.7 74.3,30.8 80.0,26.6 85.7,28.1 91.4,22.5 97.1,22.8 102.9,14.4 108.6,8.3 114.3,18.2 120.0,4.0" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">262.43</span>
+          <span class="chg up">+3.29%</span>
+        </div>
+        <p class="news">Amazon is reportedly planning a large GPU buildout to support AWS AI demand, alongside AWS&#x27;s fastest revenue growth in 18 quarters and strong demand from OpenAI and Anthropic for custom chip capacity; AWS CEO Matt Garman said AI spending &quot;does not yet resemble a bubble.&quot;</p>
+        <div class="src">Source: The Cerbat Gem</div>
+      </article>
+      <article class="card" data-ticker="AMZN">
+        <div class="card-top" onclick="openChart('AMZN')">
+          <span class="ticker">AMZN</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,21.9 5.7,13.6 11.4,19.1 17.1,27.8 22.9,32.0 28.6,23.1 34.3,18.8 40.0,10.8 45.7,16.7 51.4,26.4 57.1,26.2 62.9,25.7 68.6,31.7 74.3,30.8 80.0,26.6 85.7,28.1 91.4,22.5 97.1,22.8 102.9,14.4 108.6,8.3 114.3,18.2 120.0,4.0" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">262.43</span>
+          <span class="chg up">+3.29%</span>
+        </div>
+        <p class="news">Amazon will stop using nondisclosure agreements in data-center negotiations with local governments, intended to reduce community opposition and moratorium risks around its energy-intensive data-center buildout.</p>
+        <div class="src">Source: The Cerbat Gem</div>
+      </article>
+      <article class="card" data-ticker="AMZN">
+        <div class="card-top" onclick="openChart('AMZN')">
+          <span class="ticker">AMZN</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,21.9 5.7,13.6 11.4,19.1 17.1,27.8 22.9,32.0 28.6,23.1 34.3,18.8 40.0,10.8 45.7,16.7 51.4,26.4 57.1,26.2 62.9,25.7 68.6,31.7 74.3,30.8 80.0,26.6 85.7,28.1 91.4,22.5 97.1,22.8 102.9,14.4 108.6,8.3 114.3,18.2 120.0,4.0" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">262.43</span>
+          <span class="chg up">+3.29%</span>
+        </div>
+        <p class="news">New Alexa-branded Android tablets with Google Play access move Amazon into a higher-priced device category; separately, fresh cuts affecting fewer than 1,000 employees in the Stores division underscore the investment shift toward AI.</p>
+        <div class="src">Source: The Cerbat Gem</div>
+      </article>
+      <article class="card" data-ticker="BTC">
+        <div class="card-top" onclick="openChart('BTC')">
+          <span class="ticker">BTC</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,29.5 4.1,27.9 8.3,27.7 12.4,28.9 16.6,25.4 20.7,32.0 24.8,30.6 29.0,30.0 33.1,18.6 37.2,17.6 41.4,17.8 45.5,4.0 49.7,5.1 53.8,9.6 57.9,9.6 62.1,10.4 66.2,9.5 70.3,9.5 74.5,11.9 78.6,11.5 82.8,11.7 86.9,8.5 91.0,9.3 95.2,8.7 99.3,4.3 103.4,6.1 107.6,6.7 111.7,12.4 115.9,16.5 120.0,13.2" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">82,968.42</span>
+          <span class="chg up">+1.57%</span>
+        </div>
+        <p class="news">US spot Bitcoin ETFs took in a net $21.1M — the first net-inflow session after two straight days of redemptions ($484.9M Oct 7, $244.1M Oct 8); BlackRock&#x27;s IBIT carried the day with $22.4M in creations.</p>
+        <div class="src">Source: COINOTAG</div>
+      </article>
+      <article class="card" data-ticker="BTC">
+        <div class="card-top" onclick="openChart('BTC')">
+          <span class="ticker">BTC</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,29.5 4.1,27.9 8.3,27.7 12.4,28.9 16.6,25.4 20.7,32.0 24.8,30.6 29.0,30.0 33.1,18.6 37.2,17.6 41.4,17.8 45.5,4.0 49.7,5.1 53.8,9.6 57.9,9.6 62.1,10.4 66.2,9.5 70.3,9.5 74.5,11.9 78.6,11.5 82.8,11.7 86.9,8.5 91.0,9.3 95.2,8.7 99.3,4.3 103.4,6.1 107.6,6.7 111.7,12.4 115.9,16.5 120.0,13.2" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">82,968.42</span>
+          <span class="chg up">+1.57%</span>
+        </div>
+        <p class="news">MARA Holdings moved 996.105 BTC (~$81.1M) to Galaxy Digital, per Lookonchain/Arkham data — not a confirmed sale; US government-linked wallets fell by ~17,468 BTC (~$1.44B) since Oct 6.</p>
+        <div class="src">Source: The Market Periodical</div>
+      </article>
+      <article class="card" data-ticker="ETH">
+        <div class="card-top" onclick="openChart('ETH')">
+          <span class="ticker">ETH</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,29.0 4.1,23.3 8.3,22.5 12.4,26.1 16.6,23.3 20.7,32.0 24.8,30.6 29.0,28.4 33.1,16.1 37.2,14.6 41.4,13.7 45.5,4.0 49.7,5.7 53.8,10.7 57.9,10.5 62.1,10.2 66.2,9.9 70.3,10.5 74.5,10.5 78.6,11.3 82.8,10.7 86.9,9.2 91.0,11.9 95.2,10.5 99.3,7.7 103.4,8.8 107.6,9.8 111.7,19.0 115.9,26.4 120.0,24.2" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">2,503.35</span>
+          <span class="chg up">+1.24%</span>
+        </div>
+        <p class="news">US spot Ethereum ETFs posted a ninth straight day of net outflows ($56.1M on Oct 9, all from BlackRock&#x27;s ETHA); ~$697M cumulative over the streak; $542M in the Oct 5–9 week alone — the largest weekly ETH ETF outflow since January 2026.</p>
+        <div class="src">Source: TradingView News, BloomingBit</div>
+      </article>
+      <article class="card" data-ticker="ETH">
+        <div class="card-top" onclick="openChart('ETH')">
+          <span class="ticker">ETH</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,29.0 4.1,23.3 8.3,22.5 12.4,26.1 16.6,23.3 20.7,32.0 24.8,30.6 29.0,28.4 33.1,16.1 37.2,14.6 41.4,13.7 45.5,4.0 49.7,5.7 53.8,10.7 57.9,10.5 62.1,10.2 66.2,9.9 70.3,10.5 74.5,10.5 78.6,11.3 82.8,10.7 86.9,9.2 91.0,11.9 95.2,10.5 99.3,7.7 103.4,8.8 107.6,9.8 111.7,19.0 115.9,26.4 120.0,24.2" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">2,503.35</span>
+          <span class="chg up">+1.24%</span>
+        </div>
+        <p class="news">Ethereum&#x27;s Glamsterdam upgrade went live on the Sepolia test network, the final step before mainnet activation; designed for a large increase in transaction throughput and a ~78% reduction in gas fees.</p>
+        <div class="src">Source: TradingNews</div>
+      </article>
+      <article class="card" data-ticker="NEAR">
+        <div class="card-top" onclick="openChart('NEAR')">
+          <span class="ticker">NEAR</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,30.7 4.1,31.5 8.3,31.4 12.4,32.0 16.6,30.5 20.7,31.6 24.8,29.1 29.0,24.3 33.1,18.8 37.2,20.3 41.4,15.2 45.5,14.2 49.7,12.9 53.8,13.7 57.9,11.3 62.1,8.1 66.2,7.3 70.3,4.1 74.5,9.2 78.6,8.6 82.8,4.5 86.9,9.3 91.0,10.4 95.2,9.1 99.3,8.4 103.4,5.0 107.6,7.0 111.7,4.6 115.9,12.5 120.0,4.0" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">5.40</span>
+          <span class="chg up">+21.08%</span>
+        </div>
+        <p class="news">NEAR announced Intents and a Confidential Intents feature; separately, a post-quantum asset launch used NEAR&#x27;s Confidential Intents architecture for confidential swaps involving 180+ assets across 30 blockchains.</p>
+        <div class="src">Source: CoinStats</div>
+      </article>
+    </section>
+    <section class="day">
+      <h2>2 days ago · Thursday, Oct 8</h2>
+      
+      <article class="card" data-ticker="META">
+        <div class="card-top" onclick="openChart('META')">
+          <span class="ticker">META</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,32.0 5.7,31.2 11.4,27.5 17.1,26.6 22.9,25.9 28.6,24.0 34.3,27.5 40.0,11.6 45.7,12.6 51.4,11.0 57.1,4.0 62.9,9.5 68.6,17.0 74.3,12.2 80.0,15.0 85.7,14.9 91.4,14.4 97.1,11.5 102.9,12.1 108.6,15.8 114.3,15.9 120.0,16.4" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">718.67</span>
+          <span class="chg down">-0.31%</span>
+        </div>
+        <p class="news">Manus raised more than $500M after Meta unwound its proposed acquisition of the Chinese AI startup, leaving Manus independent.</p>
+        <div class="src">Source: MarketBeat</div>
+      </article>
+      <article class="card" data-ticker="OPEN">
+        <div class="card-top" onclick="openChart('OPEN')">
+          <span class="ticker">OPEN</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,4.0 5.7,4.5 11.4,4.5 17.1,11.2 22.9,14.1 28.6,15.6 34.3,15.6 40.0,9.8 45.7,5.9 51.4,14.6 57.1,17.0 62.9,15.1 68.6,21.9 74.3,24.8 80.0,24.8 85.7,23.3 91.4,21.4 97.1,27.7 102.9,29.6 108.6,29.6 114.3,28.6 120.0,32.0" fill="none" stroke="#dc2626" stroke-width="2"/></svg>
+          <span class="price">2.22</span>
+          <span class="chg down">-3.06%</span>
+        </div>
+        <p class="news">Opendoor pushed its adjusted net income break-even milestone back by six to eight weeks, per Ground News; shares sat near their 52-week low (~$2.31) earlier in the week.</p>
+        <div class="src">Source: ad-hoc-news.de</div>
+      </article>
+    </section>
+    <section class="day">
+      <h2>3 days ago · Wednesday, Oct 7</h2>
+      
+      <article class="card" data-ticker="MU">
+        <div class="card-top" onclick="openChart('MU')">
+          <span class="ticker">MU</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,23.4 5.7,23.7 11.4,32.0 17.1,31.4 22.9,31.6 28.6,23.4 34.3,17.2 40.0,12.6 45.7,4.2 51.4,8.1 57.1,6.7 62.9,6.4 68.6,11.0 74.3,9.2 80.0,9.2 85.7,4.0 91.4,7.6 97.1,9.4 102.9,12.4 108.6,5.5 114.3,13.9 120.0,15.0" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">1,029.00</span>
+          <span class="chg down">-0.66%</span>
+        </div>
+        <p class="news">Taiwanese union at Micron&#x27;s Taoyuan operations: 1,994 members (99% of ballots cast) authorized a strike over a bonus-scheme dispute after September mediation failed; no walkout timing announced; union instead encouraging members to take Oct 19 off for a Taipei rally (not a strike). A separate Taichung union remains in negotiations. Taiwan is Micron&#x27;s key DRAM/HBM hub (~15,000 employees).</p>
+        <div class="src">Source: Reuters</div>
+      </article>
+    </section>
+    <section class="day">
+      <h2>4 days ago · Tuesday, Oct 6</h2>
+      
+      <article class="card" data-ticker="MU">
+        <div class="card-top" onclick="openChart('MU')">
+          <span class="ticker">MU</span>
+          <svg width="120" height="36" viewBox="0 0 120 36" class="spark"><polyline points="0.0,23.4 5.7,23.7 11.4,32.0 17.1,31.4 22.9,31.6 28.6,23.4 34.3,17.2 40.0,12.6 45.7,4.2 51.4,8.1 57.1,6.7 62.9,6.4 68.6,11.0 74.3,9.2 80.0,9.2 85.7,4.0 91.4,7.6 97.1,9.4 102.9,12.4 108.6,5.5 114.3,13.9 120.0,15.0" fill="none" stroke="#16a34a" stroke-width="2"/></svg>
+          <span class="price">1,029.00</span>
+          <span class="chg down">-0.66%</span>
+        </div>
+        <p class="news">Micron and Netlist entered Patent License and Settlement Agreements: Micron pays $600M in $30M quarterly installments from Q4 2026 through Q3 2031 (20 payments), receiving a 5-year worldwide license to Netlist&#x27;s patent portfolio including server DIMMs and HBM technologies; all pending legal proceedings settled and mutually released. Micron also buys 10M Netlist shares for $1M. Follows the 2024 $445M Texas jury verdict against Micron and Netlist&#x27;s September ITC complaints.</p>
+        <div class="src">Source: Reuters, Netlist PR</div>
+      </article>
+    </section>
+  <footer>Prices: stocks as of last close · crypto as of build time. Chart history: last 30 daily closes.</footer>
+</div>
+<div id="overlay" onclick="if(event.target===this)closeChart()">
+  <div id="modal">
+    <h3 id="m-title"></h3>
+    <div class="sub" id="m-sub"></div>
+    <div class="ranges">
+      <button onclick="setRange('1d')">1d</button>
+      <button onclick="setRange('1m')" class="active">1m</button>
+      <button onclick="setRange('1y')">1y</button>
+    </div>
+    <svg id="chart" viewBox="0 0 520 220" preserveAspectRatio="none"></svg>
+    <div class="note" id="m-note"></div>
+    <div class="ranges"><button id="close" onclick="closeChart()">Close</button></div>
+  </div>
+</div>
+<script id="chart-data" type="application/json">{&quot;HOOD&quot;: [113.33, 112.57, 114.33, 110.45, 104.42, 109.81, 119.82, 123.3, 124.25, 122.7, 120.82, 119.4, 116.46, 116.22, 112.5, 111.15, 112.74, 114.11, 112.0, 109.51, 107.01, 109.02], &quot;META&quot;: [644.38, 648.03, 665.6, 670.24, 673.31, 682.31, 665.75, 741.25, 736.6, 744.1, 777.59, 751.66, 715.62, 738.79, 725.18, 725.93, 728.08, 741.9, 738.88, 721.31, 720.89, 718.67], &quot;TSLA&quot;: [363.56, 365.44, 358.97, 356.58, 358.08, 366.2, 364.27, 375.3, 378.9, 380.12, 377.94, 372.11, 357.45, 352.84, 354.81, 354.11, 370.59, 378.73, 380.68, 377.81, 375.0, 382.7], &quot;OPEN&quot;: [2.8, 2.79, 2.79, 2.65, 2.59, 2.56, 2.56, 2.68, 2.76, 2.58, 2.53, 2.57, 2.43, 2.37, 2.37, 2.4, 2.44, 2.31, 2.27, 2.27, 2.29, 2.22], &quot;AAOI&quot;: [103.29, 105.36, 95.76, 95.29, 96.74, 98.06, 105.17, 108.67, 107.0, 101.06, 101.03, 101.4, 96.82, 100.67, 99.26, 107.32, 115.59, 121.57, 130.16, 122.54, 105.9, 109.64], &quot;SIVE&quot;: [31.1, 29.46, 30.3, 27.38, 27.0, 28.58, 29.96, 31.0, 34.2, 35.78, 32.8, 32.78, 32.78, 31.48, 31.86, 31.48, 31.38, 33.28, 34.5, 35.34, 34.28, 31.08, 30.04], &quot;MU&quot;: [977.41, 975.26, 924.03, 927.6, 926.55, 977.5, 1015.8, 1043.96, 1096.16, 1071.88, 1080.53, 1082.28, 1053.98, 1065.08, 1065.11, 1097.39, 1074.89, 1063.96, 1045.56, 1088.0, 1035.84, 1029.0], &quot;SPCX&quot;: [148.18, 151.21, 148.15, 143.49, 150.88, 154.81, 152.71, 151.85, 154.72, 148.36, 148.03, 148.68, 145.47, 149.24, 150.86, 148.07, 158.96, 171.09, 171.92, 167.6, 160.57, 162.57], &quot;AMZN&quot;: [251.89, 256.78, 253.54, 248.42, 245.96, 251.19, 253.71, 258.45, 254.98, 249.27, 249.38, 249.67, 246.15, 246.67, 249.15, 248.23, 251.52, 251.4, 256.29, 259.92, 254.06, 262.43], &quot;BTC&quot;: [76554.99, 77203.53, 77261.63, 76819.04, 78173.35, 75590.24, 76146.81, 76371.36, 80873.58, 81236.41, 81169.04, 86596.74, 86183.29, 84382.4, 84377.97, 84075.72, 84416.71, 84448.75, 83479.25, 83640.1, 83576.13, 84841.67, 84506.47, 84742.79, 86489.73, 85770.87, 85540.09, 83282.05, 81685.89, 82968.42], &quot;ETH&quot;: [2437.51, 2514.85, 2525.27, 2476.68, 2514.76, 2397.5, 2415.96, 2446.14, 2611.56, 2632.01, 2644.73, 2775.17, 2752.63, 2684.34, 2687.13, 2690.89, 2695.6, 2687.54, 2687.92, 2677.38, 2684.71, 2705.3, 2667.95, 2686.89, 2725.91, 2710.42, 2697.17, 2573.23, 2472.73, 2503.35], &quot;NEAR&quot;: [2.44, 2.36, 2.37, 2.3, 2.47, 2.34, 2.62, 3.15, 3.76, 3.59, 4.16, 4.27, 4.41, 4.33, 4.59, 4.95, 5.04, 5.39, 4.82, 4.89, 5.34, 4.81, 4.69, 4.83, 4.91, 5.29, 5.07, 5.33, 4.46, 5.4]}</script>
+<script id="ticker-names" type="application/json">{&quot;HOOD&quot;: &quot;Robinhood&quot;, &quot;META&quot;: &quot;Meta Platforms&quot;, &quot;TSLA&quot;: &quot;Tesla&quot;, &quot;OPEN&quot;: &quot;Opendoor&quot;, &quot;AAOI&quot;: &quot;Applied Optoelectronics&quot;, &quot;SIVE&quot;: &quot;Sivers Semiconductors&quot;, &quot;MU&quot;: &quot;Micron Technology&quot;, &quot;SPCX&quot;: &quot;SpaceX&quot;, &quot;AMZN&quot;: &quot;Amazon&quot;, &quot;BTC&quot;: &quot;Bitcoin&quot;, &quot;ETH&quot;: &quot;Ethereum&quot;, &quot;NEAR&quot;: &quot;NEAR Protocol&quot;}</script>
+<script>
+const DATA = JSON.parse(document.getElementById('chart-data').textContent);
+const NAMES = JSON.parse(document.getElementById('ticker-names').textContent);
+let cur = null;
+function openChart(t) {
+  cur = t;
+  document.getElementById('m-title').textContent = t + ' — ' + (NAMES[t] || '');
+  document.getElementById('overlay').style.display = 'flex';
+  setRange('1m');
+}
+function closeChart() { document.getElementById('overlay').style.display = 'none'; }
+function setRange(r) {
+  document.querySelectorAll('.ranges button').forEach(b =>
+    b.classList.toggle('active', b.textContent === r));
+  const svg = document.getElementById('chart');
+  const note = document.getElementById('m-note');
+  const sub = document.getElementById('m-sub');
+  const pts = DATA[cur] || [];
+  if (r !== '1m' || pts.length < 2) {
+    svg.innerHTML = '';
+    note.textContent = r === '1d'
+      ? 'Intraday data unavailable — showing daily closes only.'
+      : 'One-year history unavailable — the feed holds about 30 days of daily closes.';
+    if (r !== '1m') { draw(pts); }
+    sub.textContent = '';
+    return;
+  }
+  note.textContent = '';
+  draw(pts);
+  const chg = (pts[pts.length-1]-pts[0])/pts[0]*100;
+  sub.textContent = pts.length + ' daily closes · ' + (chg>=0?'+':'') + chg.toFixed(2) + '% over range';
+}
+function draw(pts) {
+  const svg = document.getElementById('chart');
+  if (!pts || pts.length < 2) return;
+  const W=520, H=220, mn=Math.min(...pts), mx=Math.max(...pts), rg=(mx-mn)||1;
+  const s = pts.map((p,i) => (i/(pts.length-1)*W).toFixed(1) + ',' +
+    (H-10-(p-mn)/rg*(H-20)).toFixed(1)).join(' ');
+  const up = pts[pts.length-1] >= pts[0];
+  svg.innerHTML = '<polyline points="'+s+'" fill="none" stroke="'+
+    (up?'#4ade80':'#f87171')+'" stroke-width="2"/>';
+}
+</script>
+</body>
+</html>
