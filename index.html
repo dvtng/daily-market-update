@@ -16,7 +16,9 @@
   .idx-name { font-weight: 600; }
   .up { color: #4ade80; } .down { color: #f87171; }
   .day h2 { font-size: 15px; color: #9aa4b8; text-transform: uppercase;
-             letter-spacing: .06em; margin: 28px 0 12px; }
+             letter-spacing: .06em; margin: 28px 0 12px;
+             position: sticky; top: 0; background: #000; z-index: 5;
+             padding: 10px 0 8px; }
   .tl { position: relative; margin-left: 6px; }
   .tl::before { content: ''; position: absolute; left: 5px; top: 8px;
                  bottom: 8px; width: 2px; background: #26262b; }
@@ -26,7 +28,8 @@
   .ticker { font-weight: 800; font-size: 17px; flex: 0 0 auto; }
   .spark { flex: 1 1 auto; min-width: 60px; max-width: 140px; height: 36px;
             width: 100%; }
-  .price { margin-left: auto; font-size: 16px; font-variant-numeric: tabular-nums;
+  .price { margin-left: auto; font-size: 15px; font-weight: 700;
+            font-variant-numeric: tabular-nums;
             flex: 0 0 auto; white-space: nowrap; }
   .chg { font-size: 15px; font-weight: 700; text-align: right;
           font-variant-numeric: tabular-nums; flex: 0 0 auto;
@@ -76,8 +79,7 @@
 <body>
 <div class="wrap">
   <h1>Daily Market Update</h1>
-  <div class="edition">Wednesday, October 21, 2026 · actual developments only, no analyst targets</div>
-  <div class="idx-row"><span class="idx-name">Dow Jones</span><span class="idx-val">52,838.53 <span class="up">+0.65%</span></span></div><div class="idx-row"><span class="idx-name">S&amp;P 500</span><span class="idx-val">7,762.17 <span class="up">+0.64%</span></span></div><div class="idx-row"><span class="idx-name">Nasdaq</span><span class="idx-val">26,720.32 <span class="up">+1.12%</span></span></div>
+  <div class="idx-row"><span class="idx-name">S&amp;P 500</span><span class="idx-val">7,757.17 <span class="up">+0.58%</span></span></div><div class="idx-row"><span class="idx-name">Nasdaq</span><span class="idx-val">26,702.86 <span class="up">+1.05%</span></span></div><div class="idx-row"><span class="idx-name">Gold</span><span class="idx-val">4,151.70 <span class="up">+0.22%</span></span></div><div class="idx-row"><span class="idx-name">Oil</span><span class="idx-val">97.84 <span class="down">-3.88%</span></span></div><div class="idx-row"><span class="idx-name">Bitcoin</span><span class="idx-val">84,381.98 <span class="up">+3.06%</span></span></div>
   
     <section class="day">
       <h2>Today · Wednesday, Oct 21</h2>
@@ -484,11 +486,6 @@
   <div id="modal">
     <h3 id="m-title"></h3>
     <div class="sub" id="m-sub"></div>
-    <div class="ranges">
-      <button onclick="setRange('1d')">1d</button>
-      <button onclick="setRange('1m')" class="active">1m</button>
-      <button onclick="setRange('1y')">1y</button>
-    </div>
     <svg id="chart" viewBox="0 0 520 220" preserveAspectRatio="none"></svg>
     <div class="note" id="m-note"></div>
     <div class="ranges"><button id="close" onclick="closeChart()">Close</button></div>
@@ -505,22 +502,17 @@ function openChart(t) {
   cur = t;
   document.getElementById('m-title').textContent = t + ' — ' + (NAMES[t] || '');
   document.getElementById('overlay').style.display = 'flex';
-  setRange('1m');
+  showChart();
 }
 function closeChart() { document.getElementById('overlay').style.display = 'none'; }
-function setRange(r) {
-  document.querySelectorAll('.ranges button').forEach(b =>
-    b.classList.toggle('active', b.textContent === r));
+function showChart() {
   const svg = document.getElementById('chart');
   const note = document.getElementById('m-note');
   const sub = document.getElementById('m-sub');
   const pts = DATA[cur] || [];
-  if (r !== '1m' || pts.length < 2) {
+  if (pts.length < 2) {
     svg.innerHTML = '';
-    note.textContent = r === '1d'
-      ? 'Intraday data unavailable — showing daily closes only.'
-      : 'One-year history unavailable — the feed holds about 30 days of daily closes.';
-    if (r !== '1m') { draw(pts); }
+    note.textContent = 'Chart unavailable.';
     sub.textContent = '';
     return;
   }
