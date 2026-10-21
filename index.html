@@ -39,8 +39,11 @@
   .item { position: relative; padding: 6px 0 21px 26px; }
   .item > .dot { top: calc(6px + 0.75em - 5px); }
   .item-title { font-size: 16px; font-weight: 700; margin: 3px 0;
-                 line-height: 1.35; position: relative; }
+                 line-height: 1.35; position: relative; cursor: pointer; }
   .item-title .dot { top: 50%; transform: translateY(-50%); left: -25px; }
+  .item.collapsed { padding-bottom: 12px; }
+  .item.collapsed .item-title { color: #79839a; }
+  .item.collapsed .news, .item.collapsed .meta { display: none; }
   .news { font-size: 16px; line-height: 1.5; margin: 6px 0; color: #c9d1e0; }
   .meta { display: flex; justify-content: space-between; align-items: center;
            gap: 12px; margin-top: 6px; }
@@ -74,7 +77,7 @@
 <div class="wrap">
   <h1>Daily Market Update</h1>
   <div class="edition">Wednesday, October 21, 2026 · actual developments only, no analyst targets</div>
-  <div class="idx-row"><span class="idx-name">Dow Jones</span><span class="idx-val">52,728.14 <span class="up">+0.44%</span></span></div><div class="idx-row"><span class="idx-name">S&amp;P 500</span><span class="idx-val">7,752.73 <span class="up">+0.52%</span></span></div><div class="idx-row"><span class="idx-name">Nasdaq</span><span class="idx-val">26,691.17 <span class="up">+1.01%</span></span></div>
+  <div class="idx-row"><span class="idx-name">Dow Jones</span><span class="idx-val">52,838.53 <span class="up">+0.65%</span></span></div><div class="idx-row"><span class="idx-name">S&amp;P 500</span><span class="idx-val">7,762.17 <span class="up">+0.64%</span></span></div><div class="idx-row"><span class="idx-name">Nasdaq</span><span class="idx-val">26,720.32 <span class="up">+1.12%</span></span></div>
   
     <section class="day">
       <h2>Today · Wednesday, Oct 21</h2>
@@ -88,7 +91,7 @@
           <span class="chg up">+9.03%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Q1 2027 guidance: $33-37B revenue</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Q1 2027 guidance: $33-37B revenue</h3>
           <p class="news">Guided Q1 2027 revenue of $33–37B; Musk said he expects SpaceX to reach a $500B–$1T annual recurring revenue run rate by end of 2027 with another ~10 GW of AI compute brought online in 2027.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.barrons.com/articles/spacex-stock-price-earnings-38448178" target="_blank" rel="noopener">Barron&#x27;s</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:78%"></span></span><span class="impact-val">0.78</span></span></div>
         </article>
@@ -102,22 +105,22 @@
           <span class="chg up">+0.32%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>€16B Germany investment for 2027</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>€16B Germany investment for 2027</h3>
           <p class="news">Amazon announced plans to invest more than €16 billion in Germany in 2027, spanning AWS cloud and AI infrastructure, high-speed satellite internet through Amazon Leo, logistics expansion, and new Prime Video productions, alongside Chancellor Friedrich Merz in Berlin.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.aboutamazon.com/news/company-news/amazon-news-today-top-stories-company" target="_blank" rel="noopener">Amazon News</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:64%"></span></span><span class="impact-val">0.64</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Prime price hike in Australia</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Prime price hike in Australia</h3>
           <p class="news">Amazon raised Amazon Prime prices in Australia: the monthly plan jumped from $9.99 to $12.99 (30%) and the annual plan from $79 to $99 (25%), effective immediately for new customers, with existing members moved to the new pricing at their first renewal on or after 25 November 2026.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.finder.com.au/news/amazon-prime-just-got-more-expensive-australia-2026" target="_blank" rel="noopener">Finder</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:39%"></span></span><span class="impact-val">0.39</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Youth Promise: 30,000 UK roles</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Youth Promise: 30,000 UK roles</h3>
           <p class="news">Amazon launched The Amazon Youth Promise in the UK, committing 30,000 entry-level roles to young people from the least-opportunity areas from this year through 2030, all starting at over £31,000 (~$42,000) a year pro rata with private medical insurance and a pension from day one.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.aboutamazon.com/news/company-news/amazon-news-today-top-stories-company" target="_blank" rel="noopener">Amazon News</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:36%"></span></span><span class="impact-val">0.36</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>India commission orders Prime Video refund</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>India commission orders Prime Video refund</h3>
           <p class="news">An Indian consumer commission ordered Amazon Seller Services to pay ₹9,499 total (refund of the ₹1,499 annual subscription, ₹5,000 compensation, ₹3,000 litigation costs) after finding that introducing ads during a paid ad-free Prime Video subscription, and charging an extra ₹699 to restore ad-free viewing, amounted to deficiency in service and unfair trade practice.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.outlookmoney.com/news/amazon-prime-video-ordered-to-pay-compensation-over-ads-during-paid-subscription" target="_blank" rel="noopener">Outlook Money</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:29%"></span></span><span class="impact-val">0.29</span></span></div>
         </article>
@@ -131,7 +134,7 @@
           <span class="chg up">+8.16%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Q3 report: Intents volume hits $10.4B</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Q3 report: Intents volume hits $10.4B</h3>
           <p class="news">Nansen&#x27;s NEAR Q3 2026 report showed NEAR Intents at ~$10.4B quarterly transaction volume, cumulative fees over $52M with $8M+ directed to NEAR buybacks (16.4% lifetime fee capture as of Oct 6), Confidential Intents TVL up 463% QoQ to ~$160M, and the network processing ~68M transactions (~739K/day).</p>
           <div class="meta"><span class="src">Source: <a href="https://www.kucoin.com/news/flash/near-intents-q3-2026-transaction-volume-hits-10-4b-over-8m-used-for-near-buybacks" target="_blank" rel="noopener">KuCoin</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:63%"></span></span><span class="impact-val">0.63</span></span></div>
         </article>
@@ -145,17 +148,17 @@
           <span class="chg up">+4.09%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Ether ETFs post record monthly outflows</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Ether ETFs post record monthly outflows</h3>
           <p class="news">US spot Ether ETFs shed $26.13M on Oct 20, pushing October net outflows to ~$1.08B — the biggest monthly outflow of 2026 — wiping out September&#x27;s $832M in inflows and leaving YTD net inflows at ~$485M (SoSoValue).</p>
           <div class="meta"><span class="src">Source: <a href="https://cointelegraph.com/markets/ether-etf-outflows-near-1-1-billion-october" target="_blank" rel="noopener">Cointelegraph</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:52%"></span></span><span class="impact-val">0.52</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Bitmine adds 159K ETH</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Bitmine adds 159K ETH</h3>
           <p class="news">Bitmine added 159K ETH to its holdings, bringing its total ETH stake to 5.23M ETH.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.coingabbar.com/en/ethereum-news-today-eth-price-bitmine-bitwise-staking-report" target="_blank" rel="noopener">Coin Gabbar</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:38%"></span></span><span class="impact-val">0.38</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Drift exploiter moves 44,510 ETH to Tornado Cash</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Drift exploiter moves 44,510 ETH to Tornado Cash</h3>
           <p class="news">The Drift Protocol exploiter moved 44,510 ETH (~$109.15M) to Tornado Cash.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.coingabbar.com/en/ethereum-news-today-eth-price-bitmine-bitwise-staking-report" target="_blank" rel="noopener">Coin Gabbar</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:35%"></span></span><span class="impact-val">0.35</span></span></div>
         </article>
@@ -169,12 +172,12 @@
           <span class="chg up">+4.47%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Aerodrome DEX launches on Robinhood Chain</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Aerodrome DEX launches on Robinhood Chain</h3>
           <p class="news">Aerodrome Finance&#x27;s DEX deployed on Robinhood Chain, the company&#x27;s newly launched Ethereum Layer-2 network, giving the chain a native liquidity venue with direct access to Robinhood&#x27;s retail user base.</p>
           <div class="meta"><span class="src">Source: <a href="https://bitrss.com/why-is-aero-up-14-robinhood-chain-and-arbitrum-launches-on-oct-21-255022" target="_blank" rel="noopener">BitRss</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:51%"></span></span><span class="impact-val">0.51</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Reported Oct 21 (announced Oct 1) — Shareholder Q&amp;A opens for Q3 call</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Reported Oct 21 (announced Oct 1) — Shareholder Q&amp;A opens for Q3 call</h3>
           <p class="news">Robinhood opened shareholder question submission and upvoting for its Q3 2026 earnings call (results due Oct 27 after market close) via the Say by Robinhood Q&amp;A platform; management will address a selection of the top questions on the call.</p>
           <div class="meta"><span class="src">Source: GlobeNewswire</span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:0%"></span></span><span class="impact-val">0.00</span></span></div>
         </article>
@@ -188,12 +191,12 @@
           <span class="chg up">+3.70%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Tesla drops out of EV innovation top 10</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Tesla drops out of EV innovation top 10</h3>
           <p class="news">Tesla fell from 6th to 11th in the Center of Automotive Management&#x27;s 2026 EV innovation ranking, its first time outside the top 10 since the ranking began in 2016; Geely, Volkswagen and BYD hold the top three spots.</p>
           <div class="meta"><span class="src">Source: <a href="https://teslanewswire.com/articles/tesla-spacex-merger-special-committees-independent-directors-musk-not-certain-oct-20-2026" target="_blank" rel="noopener">Tesla News Wire</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:44%"></span></span><span class="impact-val">0.44</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Model 3 recall: 131,726 cars, OTA fix</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Model 3 recall: 131,726 cars, OTA fix</h3>
           <p class="news">Tesla is recalling 131,726 left-hand-drive Model 3 Premium sedans built at Giga Shanghai for the EU, Middle East and Korea because the far-side airbag calibration can exceed the UN R135 shoulder-force limit in pole side-impact tests; the fix is a free over-the-air software update.</p>
           <div class="meta"><span class="src">Source: <a href="https://teslanewswire.com/articles/tesla-spacex-merger-special-committees-independent-directors-musk-not-certain-oct-20-2026" target="_blank" rel="noopener">Tesla News Wire</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:33%"></span></span><span class="impact-val">0.33</span></span></div>
         </article>
@@ -206,13 +209,13 @@
           <span class="price">311.29</span>
           <span class="chg up">+6.72%</span>
         </div>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>WAF shields critical php2shell flaws</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>WAF shields critical php2shell flaws</h3>
           <p class="news">Cloudflare deployed WAF protections against two critical PHP vulnerabilities known as php2shell (CVE-2026-109618 and CVE-2026-109619), introducing a new full-transaction-detection capability that combines request and response signals; protections were live ~9 hours ahead of public disclosure after the flaws leaked early.</p>
           <div class="meta"><span class="src">Source: <a href="https://blog.cloudflare.com/php-vulnerabilities-waf-protection/" target="_blank" rel="noopener">Cloudflare Blog</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:37%"></span></span><span class="impact-val">0.37</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>8 eMudhra certs flagged over key compromise</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>8 eMudhra certs flagged over key compromise</h3>
           <p class="news">Cloudflare flagged 8 eMudhra intermediate certificates after learning their private keys were compromised on Oct 19, released updates for Cloudflare One Clients (WARP/1.1.1.1) and Cloudflare Tunnel, and deployed mitigations across CDN, Developer, and Zero Trust products; it said its review found no active exploitation on its services.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.el-balad.com/17059550" target="_blank" rel="noopener">El-Balad</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:28%"></span></span><span class="impact-val">0.28</span></span></div>
         </article>
@@ -225,8 +228,8 @@
           <span class="price">916.45</span>
           <span class="chg up">+2.27%</span>
         </div>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Taichung labor deal; Taoyuan strike still on</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Taichung labor deal; Taoyuan strike still on</h3>
           <p class="news">Micron reached a labor-management agreement with the Taichung union in Taiwan (its largest Taiwan operation, producing DRAM and HBM); both sides withdrew from mediation scheduled for Oct 22, while the Taoyuan union still plans a one-day warning strike on Oct 22 over bonuses and profit-sharing.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.tradingview.com/news/reuters.com,2026:newsml_P8N45200E:0-micron-says-it-has-reached-agreement-with-taiwan-union/" target="_blank" rel="noopener">Reuters</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:31%"></span></span><span class="impact-val">0.31</span></span></div>
         </article>
@@ -245,17 +248,17 @@
           <span class="chg up">+9.03%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Merger committees with Tesla confirmed</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Merger committees with Tesla confirmed</h3>
           <p class="news">Musk said on the earnings call that SpaceX and Tesla boards have formed special committees of independent directors to discuss a possible merger; Musk recused himself from talks, citing conflicts of interest.</p>
           <div class="meta"><span class="src">Source: <a href="https://nypost.com/2026/10/20/business/spacex-stock-soars-on-blowout-earnings-that-see-revenue-surge-161-as-musk-talks-tesla-merger/" target="_blank" rel="noopener">New York Post</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:89%"></span></span><span class="impact-val">0.89</span></span></div>
         </article>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Q3 revenue $14.58B, up 161%</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Q3 revenue $14.58B, up 161%</h3>
           <p class="news">Reported Q3 revenue of $14.58B, up 161% YoY, with net income of $4.4B; the rebranded Super Intelligence AI division generated ~$7.6B, overtaking Starlink as the company&#x27;s largest segment.</p>
           <div class="meta"><span class="src">Source: <a href="https://nypost.com/2026/10/20/business/spacex-stock-soars-on-blowout-earnings-that-see-revenue-surge-161-as-musk-talks-tesla-merger/" target="_blank" rel="noopener">New York Post</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:84%"></span></span><span class="impact-val">0.84</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Bandwagon-5 rideshare launches</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Bandwagon-5 rideshare launches</h3>
           <p class="news">Launched the Bandwagon-5 rideshare mission from Cape Canaveral, carrying the company&#x27;s second Starfall reentry capsule plus 31 other payloads; the flight slipped one day from Oct 19 due to booster-recovery weather.</p>
           <div class="meta"><span class="src">Source: <a href="https://aiaa.org/2026/10/20/spacex-sends-second-starfall-reentry-vehicle-into-orbit/" target="_blank" rel="noopener">AIAA</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:19%"></span></span><span class="impact-val">0.19</span></span></div>
         </article>
@@ -269,12 +272,12 @@
           <span class="chg up">+3.70%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Tesla-SpaceX merger committees formed</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Tesla-SpaceX merger committees formed</h3>
           <p class="news">Tesla and SpaceX have each formed special committees of independent directors to study a possible merger, Elon Musk disclosed on SpaceX&#x27;s Q3 earnings call; no terms agreed, no deal guaranteed, and Musk said his conflicted role keeps him out of the committees&#x27; talks.</p>
           <div class="meta"><span class="src">Source: <a href="https://teslanewswire.com/articles/tesla-spacex-merger-special-committees-independent-directors-musk-not-certain-oct-20-2026" target="_blank" rel="noopener">Tesla News Wire</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:66%"></span></span><span class="impact-val">0.66</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Model Y L gets Acceleration Boost in India</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Model Y L gets Acceleration Boost in India</h3>
           <p class="news">Tesla gave the India-spec Model Y L an &quot;Acceleration Boost&quot; powertrain update cutting claimed 0-100 km/h time to 4.5 seconds (from 5.0), with range (681 km WLTP) and price (Rs 61.99 lakh) unchanged; applies to vehicles purchased from October 1, 2026.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.drivespark.com/four-wheelers/2026/tesla-model-y-l-gets-quicker-in-india-088385.html" target="_blank" rel="noopener">DriveSpark</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:27%"></span></span><span class="impact-val">0.27</span></span></div>
         </article>
@@ -288,17 +291,17 @@
           <span class="chg up">+6.72%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>10M developers now on the platform</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>10M developers now on the platform</h3>
           <p class="news">Cloudflare announced more than 10 million developers are now building on its platform, up from 7.4 million the prior quarter, driven by AI-agent workloads; AI agent requests on the network are up &gt;1,700% year over year.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.businesswire.com/news/home/20261020297012/en/More-than-10-Million-Developers-Are-Building-on-Cloudflare" target="_blank" rel="noopener">Business Wire</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:59%"></span></span><span class="impact-val">0.59</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Clairic document-extraction model in preview</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Clairic document-extraction model in preview</h3>
           <p class="news">Cloudflare released Clairic, a document-extraction model on Workers AI in preview that answers requested fields in a single pass rather than token-by-token, positioned as faster and cheaper than LLMs for data extraction; open weights expected to follow.</p>
           <div class="meta"><span class="src">Source: <a href="https://pivotnews.ai/five/cloudflare-claims-new-clairic-model-beats-llms-on-document" target="_blank" rel="noopener">Pivot News</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:37%"></span></span><span class="impact-val">0.37</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Prince opens Connect 2026</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Prince opens Connect 2026</h3>
           <p class="news">CEO Matthew Prince opened the Connect 2026 conference in San Francisco, warning AI agents will favor businesses they know most about, and Cloudflare showed products to help businesses get found, get paid, and run software on its network.</p>
           <div class="meta"><span class="src">Source: shashi.co</span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:18%"></span></span><span class="impact-val">0.18</span></span></div>
         </article>
@@ -312,7 +315,7 @@
           <span class="chg up">+3.08%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>LiDAR customer starts production orders</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>LiDAR customer starts production orders</h3>
           <p class="news">Sivers announced its strategic LiDAR customer initiated first production orders for automotive and industrial sensing LiDAR platforms; Sivers will supply CW DFB lasers and optical amplifiers, with shipments starting Q4 2026 ahead of the production phase in 2027. The program (announced Mar 2026) carries estimated cumulative revenue potential of USD 53–138M over the product lifecycle.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.laserfocusworld.com/directory/laser-sources/laser-semiconductor/press-release/55413184/sivers-semiconductors-ab-strategic-lidar-customer-initiates-production-orders-with-sivers-semiconductors" target="_blank" rel="noopener">Laser Focus World</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:58%"></span></span><span class="impact-val">0.58</span></span></div>
         </article>
@@ -326,7 +329,7 @@
           <span class="chg up">+3.06%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Swiss spot Bitcoin ETF approved</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Swiss spot Bitcoin ETF approved</h3>
           <p class="news">Switzerland&#x27;s financial regulator FINMA approved the country&#x27;s first spot Bitcoin ETF for retail investors, granting an exemption from standard risk-diversification rules (citing Bitcoin&#x27;s long trading history and high volume); Zurich-based BIT Asset Management later claimed the approval and plans a November listing on SIX Swiss Exchange under ticker BBIT.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.theblock.co/news/regulation/2026-10-20-swiss-regulator-finma-approves-countrys-first-spot-bitcoin-etf-for-retail-investors-421127" target="_blank" rel="noopener">The Block</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:56%"></span></span><span class="impact-val">0.56</span></span></div>
         </article>
@@ -340,12 +343,12 @@
           <span class="chg up">+8.16%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Vote opens on cutting issuance to 1.6%</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Vote opens on cutting issuance to 1.6%</h3>
           <p class="news">House of Stake opened voting on HSP-029, a proposal to cut NEAR&#x27;s maximum annual issuance from 2.5% to 1.6% phased in over 24 months (90-day grace period after ratification), keeping the 90/10 staking/treasury split; modeled staking yield falls from ~5.27% to ~3.37%, and validators must separately adopt a protocol upgrade before it takes effect.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.tokenpost.com/news/technology/36519" target="_blank" rel="noopener">TokenPost</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:55%"></span></span><span class="impact-val">0.55</span></span></div>
         </article>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>NEAR Business treasury platform launches</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>NEAR Business treasury platform launches</h3>
           <p class="news">NEAR Protocol launched NEAR Business, an invite-only confidential multisig treasury platform for companies managing payroll, vendor payments, cross-chain swaps, and capital allocation across 35+ blockchains and 200+ assets, running on NEAR Intents and private sharding; free to start with a 0.35% swap fee.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.tokenpost.com/news/technology/36519" target="_blank" rel="noopener">TokenPost</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:47%"></span></span><span class="impact-val">0.47</span></span></div>
         </article>
@@ -359,12 +362,12 @@
           <span class="chg up">+2.27%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Taoyuan union calls Oct 22 strike</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Taoyuan union calls Oct 22 strike</h3>
           <p class="news">Micron&#x27;s Taoyuan union in Taiwan announced a solidarity strike for Oct 22 amid the bonus dispute, escalating pressure on the company; Reuters noted Taiwan accounts for over 60% of Micron&#x27;s output including HBM for AI accelerators.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.tradingview.com/news/reuters.com,2026:newsml_P8N45200E:0-micron-says-it-has-reached-agreement-with-taiwan-union/" target="_blank" rel="noopener">Reuters</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:54%"></span></span><span class="impact-val">0.54</span></span></div>
         </article>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Micron backs Indium expansion in New York</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Micron backs Indium expansion in New York</h3>
           <p class="news">Micron announced a strategic investment to expand Indium Corporation&#x27;s critical-minerals processing and high-purity materials manufacturing in Rome, New York, securing a long-term supply agreement; part of Micron&#x27;s plan to spend up to $3B strengthening the U.S. semiconductor supply chain.</p>
           <div class="meta"><span class="src">Source: <a href="https://evertiq.com/news/2026-10-21-micron-invests-in-critical-minerals-processing-at-indium-in-new-york" target="_blank" rel="noopener">Evertiq</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:52%"></span></span><span class="impact-val">0.52</span></span></div>
         </article>
@@ -378,12 +381,12 @@
           <span class="chg up">+4.09%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Staking hits record 43.8M ETH</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Staking hits record 43.8M ETH</h3>
           <p class="news">Bitwise&#x27;s Q4 staking report: Ethereum staking hit a record 43.8M ETH (35.9% of supply) with 1.99M ETH net inflows in Q3 — sixth straight quarter of growth — while the gross staking yield slipped from 2.81% to 2.63%.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.kucoin.com/news/flash/ethereum-staking-hits-record-43-8-million-eth-as-yields-fall-bitwise-q4-report" target="_blank" rel="noopener">KuCoin</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:48%"></span></span><span class="impact-val">0.48</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Glamsterdam testnet set for Oct 26</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Glamsterdam testnet set for Oct 26</h3>
           <p class="news">Glamsterdam network upgrade scheduled for Hoodi testnet activation on October 26, 2026 at 17:42:48 UTC, introducing proposer-builder separation and block-level access lists, with Hoodi&#x27;s gas limit rising to 200 million; no mainnet date confirmed.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.kucoin.com/news/flash/ethereum-staking-hits-record-43-8-million-eth-as-yields-fall-bitwise-q4-report" target="_blank" rel="noopener">KuCoin</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:23%"></span></span><span class="impact-val">0.23</span></span></div>
         </article>
@@ -397,12 +400,12 @@
           <span class="chg up">+2.25%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Field talks MCP; 20 new partners</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Field talks MCP; 20 new partners</h3>
           <p class="news">Co-founder Dylan Field addressed the MCP debate at Figma&#x27;s first Config conference in India, saying MCP &quot;is not a perfect protocol&quot; and is &quot;advantaged more to frontier labs,&quot; while announcing 20 new MCP partners (Amp, ClickUp, Dia, Junie by JetBrains, Linear, Meta Muse, Mistral, Notion, OpenCode, Sarvam Agents) for Figma&#x27;s expanding AI ecosystem.</p>
           <div class="meta"><span class="src">Source: <a href="https://techcrunch.com/2026/10/20/figma-co-founder-dylan-field-thinks-mcp-is-not-a-perfect-protocol/" target="_blank" rel="noopener">TechCrunch</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:48%"></span></span><span class="impact-val">0.48</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Director sells 20,266 shares under 10b5-1</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Director sells 20,266 shares under 10b5-1</h3>
           <p class="news">Director Lynn Vojvodich Radakovich sold 20,266 shares on Oct 15 at an average price of $22.63 (~$458,620 total), a 19.29% reduction in her ownership, disclosed in an SEC filing; the trade was executed under a pre-arranged Rule 10b5-1 plan.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.defenseworld.net/2026/10/20/figma-nysefig-director-lynn-vojvodich-radakovich-sells-20266-shares-of-stock.html" target="_blank" rel="noopener">Defense World</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:0%"></span></span><span class="impact-val">0.00</span></span></div>
         </article>
@@ -416,12 +419,12 @@
           <span class="chg up">+2.15%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Muse assistant passes 10M downloads</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Muse assistant passes 10M downloads</h3>
           <p class="news">Meta&#x27;s Muse personal AI assistant crossed 10 million downloads in the U.S. and Canada within its first 35 days, per Sensor Tower data shared Oct 19, reaching the milestone faster than ChatGPT, Claude, and Grok, with a 23% 14-day retention rate in the U.S.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.pymnts.com/news/artificial-intelligence/2026/metas-muse-reaches-10-million-downloads-faster-than-chatgpt/" target="_blank" rel="noopener">PYMNTS</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:45%"></span></span><span class="impact-val">0.45</span></span></div>
         </article>
-        <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Kaplan to depart in 2027</h3>
+        <article class="item collapsed">
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Kaplan to depart in 2027</h3>
           <p class="news">Meta confirmed chief global affairs officer Joel Kaplan will leave the company in 2027 after roughly 15 years; Kaplan will stay through the U.S. midterms to assist the transition, with president and vice chairman Dina Powell McCormick adding external affairs to her portfolio.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.wsj.com/tech/meta-policy-chief-joel-kaplan-to-leave-company-86cb20dc" target="_blank" rel="noopener">The Wall Street Journal</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:14%"></span></span><span class="impact-val">0.14</span></span></div>
         </article>
@@ -435,7 +438,7 @@
           <span class="chg down">-3.88%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>Ownify shared-equity pilot in North Carolina</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>Ownify shared-equity pilot in North Carolina</h3>
           <p class="news">Opendoor has partnered with Ownify to pilot a shared-equity homeownership program in North Carolina, letting eligible buyers put down as little as 2% with a fixed monthly payment over five years; buyers build equity while a capital partner funds the rest, with a buyout at fair market value (avg. of three appraisals) during or after the five-year term.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.grihik.com/news/international/opendoor-tests-2-per-cent-down-shared-equity-model" target="_blank" rel="noopener">Grihik</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:41%"></span></span><span class="impact-val">0.41</span></span></div>
         </article>
@@ -449,7 +452,7 @@
           <span class="chg up">+0.32%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>300,000 holiday hires planned</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>300,000 holiday hires planned</h3>
           <p class="news">Amazon said it plans to hire more than 300,000 workers for the US holiday season — its first increase in holiday hiring in three years — with pay starting at $20/hour and, starting next year, healthcare benefits for seasonal employees working at least 30 hours per week.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.reuters.com/legal/litigation/amazon-recruit-over-300000-workers-holiday-season-first-hiring-jump-three-years-2026-10-20/" target="_blank" rel="noopener">Reuters</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:40%"></span></span><span class="impact-val">0.40</span></span></div>
         </article>
@@ -468,7 +471,7 @@
           <span class="chg up">+3.06%</span>
         </div>
         <article class="item">
-          <h3 class="item-title"><span class="dot"></span>US Bitcoin ETFs see $526.7M inflow day</h3>
+          <h3 class="item-title" onclick="toggleItem(this)"><span class="dot"></span>US Bitcoin ETFs see $526.7M inflow day</h3>
           <p class="news">U.S. spot Bitcoin ETFs recorded $526.7 million in net inflows on Oct 19 — the largest daily inflow in nearly a month, driven almost entirely by BlackRock&#x27;s IBIT ($665.2M gross, offset by outflows from FBTC and GBTC) — followed by an additional $23M on Oct 20, after several weeks of outflows.</p>
           <div class="meta"><span class="src">Source: <a href="https://www.fxstreet.com/cryptocurrencies/news/bitcoin-surges-to-848k-on-massive-etf-inflows-a-real-rally-or-just-a-macro-relief-bounce-202610211551" target="_blank" rel="noopener">FXStreet</a></span><span class="impact"><span>Impact</span><span class="impact-bar"><span style="width:51%"></span></span><span class="impact-val">0.51</span></span></div>
         </article>
@@ -497,6 +500,7 @@
 const DATA = JSON.parse(document.getElementById('chart-data').textContent);
 const NAMES = JSON.parse(document.getElementById('ticker-names').textContent);
 let cur = null;
+function toggleItem(el) { el.closest('.item').classList.toggle('collapsed'); }
 function openChart(t) {
   cur = t;
   document.getElementById('m-title').textContent = t + ' — ' + (NAMES[t] || '');
